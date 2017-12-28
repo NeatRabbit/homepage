@@ -47,10 +47,6 @@ highlight:
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ''
-  per_page: 10
-  order_by: -date
   
 # Category & Tag
 default_category: uncategorized
@@ -78,4 +74,5 @@ theme: cactus-dark
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/NeatRabbit/homepage.git

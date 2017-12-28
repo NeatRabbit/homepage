@@ -1,0 +1,32 @@
+.print
+  display: none
+
+@media print
+  body
+    color: #000;
+    background-color: #fff;
+    min-height: auto
+  #header
+    max-width: auto
+
+    #logo
+        display: none
+  #header, .content
+    h1, .h1, h2, .h2, h3, h4, h5
+      color: #000
+  size: A4
+  #footer
+    display: none
+  .content
+    margin: 0
+  .screen
+    display: none
+  .print
+    display: block
+  #socialinfo
+    display: block
+
+    li
+      display: block
+    li:after
+      display: none

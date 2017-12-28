@@ -1,0 +1,57 @@
+nav:
+  Home: /
+#   About: /about/
+  Writing: /archives/
+#   Projects: http://github.com/neatrabbit
+
+# projects_url: http://github.com/neatrabbit
+
+customize:
+    gravatar:
+        email: usagi@nagi.space
+    logo:
+        enabled: true
+        width: 50
+        height: 50
+        url: /images/favicon.gif
+        gravatar: false
+    favicon: 
+      # eg. generate with http://realfavicongenerator.net/
+      desktop:
+        url: /images/favicon.gif
+        gravatar: false
+      android:
+        url: /images/favicon.gif
+        gravator: false
+      apple:
+        url: /images/favicon.gif
+        gravator: false
+    social_links:
+        github: 
+          url: http://github.com/neatrabbit
+        envelope:
+          url: mailto:usagi@nagi.space
+          new: false
+        # twitter: /
+        # facebook: /
+        # linkedin: /
+
+    show_all_posts: false
+    post_count: 5
+    highlight: rainbow
+
+# RSS
+rss: false
+
+# Plugins
+plugins:
+    disqus_shortname: # Disqus Comments Shortname
+    google_analytics: UA-46464928-2 # enter the tracking ID for your Google Analytics
+
+# Miscellaneous
+miscellaneous:
+    open_graph: # see http://ogp.me
+        fb_app_id:
+        fb_admins:
+        twitter_id:
+        google_plus:
