@@ -17,12 +17,12 @@ h1, h2 {
     color: #008ed4;
 }
 .header {
-    width: 1250px;
+    max-width: 1250px;
     margin: auto;
     padding: 30px 15px 15px;
 }
 .content {
-    width: 1250px;
+    max-width: 1250px;
     margin: auto;
     padding: 0 15px 15px;
 }
@@ -56,4 +56,38 @@ a, a:active, a:visited {
 }
 .name {
     color: #c9cacc;
+}
+.skill_list {
+    list-style: none;
+    padding: 0;
+}
+.skill_item {
+    display: inline-block;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #008ed4;
+    border-radius: 5px;
+
+    & + .skill_item {
+        margin-left: 10px;
+    }
+    &:before {
+        content: '#';
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .resume:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+    .resume_left {
+        float: left;
+        width: 50%;
+    }
+    .resume_right {
+        float: left;
+        width: 50%;
+    }
 }

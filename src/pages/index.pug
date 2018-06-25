@@ -2,44 +2,47 @@ extends ../layout/main.pug
 block vars
     - lang = 'ko'
 block content
-    div.resume
-        h2.name GwangYeom Kim
-        p Experienced in Front-end, Markup (html5, css), Workflow automation (nodeJs) development.
-        h2 Experience
-        h3 N Tech Services
-        h4 Web UI Developer (2015.10. ~ )
-        ul
-            li Develop workflow automation use gulp
-            li Teach workflow automation for intern
-            li Develop web ui use html, css (sass), js
-            li Project (Naver Services)
-                ul
-                    li SmartEditor 3.0
-                    li PhotoEditor based HTML5
-                    li Grafolio (#[a(href="https://www.grafolio.com") https://www.grafolio.com])
-                    li Knowledge iN (#[a(href="https://kin.naver.com") https://kin.naver.com])
-        h3 Tekville.com
-        h4 Server Programmer (2012.11 ~ 2015.09)
-        ul
-            li Develop website use Linux, PHP, MySQL, html, css, js
-            li Project
-                ul
-                    li LMS (Learning Management System) develop use PHP opensource
-                    li Company homepage renewal
-        h2 Skills
-        ul.skill_list
-            each val in ['HTML5', 'CSS', 'SASS', 'Javascript', 'NodeJS', 'Typescript', 'VueJS', 'PHP', 'Git', 'MySQL', 'Linux']
-                li.skill_item= val
-        h2 Education
-        h3 Credit Banking System
-        p Bachelor of Computer Science
-        h2 Contact
-        h3 E-mail
-        p 
-            a(href="mailto:usagi@nagi.space") usagi@nagi.space
-        h3 Github
-        p
-            a(href="https://github.com/NeatRabbit") https://github.com/NeatRabbit
-        h3 LinkedIn
-        p
-            a(href="https://www.linkedin.com/in/gwang-yeom-kim/") https://www.linkedin.com/in/gwang-yeom-kim/
+    article.resume
+        h2.name 김광염
+        p 프론트엔드, 마크업 (HTML5, CSS), 업무 자동화 (NodeJS) 개발.
+        section.resume_left
+            h2 경력
+            h3 N Tech Services
+            h4 웹 UI 개발자 (2015.10. ~ )
+            ul.exp_list
+                li.exp_item gulp를 이용한 업무 자동화 개발
+                li.exp_item 사내 인턴 대상 업무자동화 교육
+                li.exp_item HTML/CSS(SASS)/JS를 이용한 웹 UI 개발
+                li.exp_item 참여 업무 (네이버 서비스)
+                    ul.project_list
+                        li.project_item 스마트에디터 3.0
+                        li.project_item HTML5 기반 포토에디터
+                        li.project_item Grafolio (#[a(href="https://www.grafolio.com") https://www.grafolio.com])
+                        li.project_item 지식iN (#[a(href="https://kin.naver.com") https://kin.naver.com])
+            h3 테크빌닷컴
+            h4 웹 서버 프로그래머 (2012.11 ~ 2015.09)
+            ul.exp_list
+                li.exp_item Linux, PHP, MySQL 기반 웹 사이트 개발
+                li.exp_item 참여 업무
+                    ul.project_list
+                        li.project_item PHP 오픈소스 기반 LMS (Learning Management System) 개발
+                        li.project_item 회사 홈페이지 리뉴얼
+            h2 보유 기술
+            ul.skill_list
+                each val in ['HTML5', 'CSS', 'SASS', 'Javascript', 'NodeJS', 'Typescript', 'VueJS', 'PHP', 'Git', 'MySQL', 'Linux']
+                    li.skill_item= val
+        section.resume_right
+            h2 학력
+            h3 학점은행제
+            p 호서전문학교 사이버해킹보안과 (2009.03 ~ 2011.03)
+            p 전자계산학사 학위 수료
+            h2 연락처
+            h3 E-mail
+            p 
+                a(href="mailto:usagi@nagi.space") usagi@nagi.space
+            h3 Github
+            p
+                a(href="https://github.com/NeatRabbit") https://github.com/NeatRabbit
+            h3 LinkedIn
+            p
+                a(href="https://www.linkedin.com/in/gwang-yeom-kim/") https://www.linkedin.com/in/gwang-yeom-kim/

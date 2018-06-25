@@ -6,8 +6,13 @@
   "repository": "https://github.com/NeatRabbit/homepage.git",
   "author": "NeatRabbit <usagi@nagi.space>",
   "license": "MIT",
+  "scripts": {
+    "start": "maid dev",
+    "build": "maid build"
+  },
   "devDependencies": {
     "browser-sync": "^2.24.5",
+    "cpx": "^1.5.0",
     "jstransformer-markdown-it": "^2.1.0",
     "maid": "^0.3.0",
     "node-sass": "^4.9.0",
