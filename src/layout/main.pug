@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+block vars
+- var menu_links = ['/', 'posts']
+case lang
+    when 'ko'
+        - var title = '토끼굴'
+        - var menu = ['입구', '게시물']
+    when 'en'
+        - var title = 'A Rabbit Burrow'
+        - var menu = ['Home', 'Posts']
+html(lang=lang)
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title= title
+        link(rel="stylesheet", href="css/main.css", media="screen")
+        link(rel="stylesheet", href="css/print.css", media="print")
+        link(rel="shortcut icon", href="assets/images/favicon.gif", type="image/x-icon")
+    body
+        header.header
+            img.title_img(src="assets/images/favicon.gif", alt="")
+            h1.title 
+                span.title_text= title
+            nav
+                ul.menu_list
+                    each menu_name, index in menu
+                        li.menu_item
+                            a.menu_link(href=menu_links[index])= menu_name
+        section.content
+            block content
+        footer.footer
+            block footer
+        script(src="scripts/main.js")

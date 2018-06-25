@@ -1,0 +1,45 @@
+extends ../../layout/main.pug
+block vars
+    - lang = 'en'
+block content
+    div.resume
+        h2.name GwangYeom Kim
+        p Experienced in Front-end, Markup (html5, css), Workflow automation (nodeJs) development.
+        h2 Experience
+        h3 N Tech Services
+        h4 Web UI Developer (2015.10. ~ )
+        ul
+            li Develop workflow automation use gulp
+            li Teach workflow automation for intern
+            li Develop web ui use html, css (sass), js
+            li Project (Naver Services)
+                ul
+                    li SmartEditor 3.0
+                    li PhotoEditor based HTML5
+                    li Grafolio (#[a(href="https://www.grafolio.com") https://www.grafolio.com])
+                    li Knowledge iN (#[a(href="https://kin.naver.com") https://kin.naver.com])
+        h3 Tekville.com
+        h4 Server Programmer (2012.11 ~ 2015.09)
+        ul
+            li Develop website use Linux, PHP, MySQL, html, css, js
+            li Project
+                ul
+                    li LMS (Learning Management System) develop use PHP opensource
+                    li Company homepage renewal
+        h2 Skills
+        ul.skill_list
+            each val in ['HTML5', 'CSS', 'SASS', 'Javascript', 'NodeJS', 'Typescript', 'VueJS', 'PHP', 'Git', 'MySQL', 'Linux']
+                li.skill_item= val
+        h2 Education
+        h3 Credit Banking System
+        p Bachelor of Computer Science
+        h2 Contact
+        h3 E-mail
+        p 
+            a(href="mailto:usagi@nagi.space") usagi@nagi.space
+        h3 Github
+        p
+            a(href="https://github.com/NeatRabbit") https://github.com/NeatRabbit
+        h3 LinkedIn
+        p
+            a(href="https://www.linkedin.com/in/gwang-yeom-kim/") https://www.linkedin.com/in/gwang-yeom-kim/
