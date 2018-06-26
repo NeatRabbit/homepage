@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "start": "maid dev",
-    "build": "maid build"
+    "build": "maid build",
+    "deploy": "maid deploy"
   },
   "devDependencies": {
     "browser-sync": "^2.24.5",
