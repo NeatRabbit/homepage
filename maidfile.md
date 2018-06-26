@@ -88,6 +88,7 @@ const path = require('path');
 const sass = require('node-sass');
 
 module.exports = async () => {
+    await fs.copy('src/CNAME', 'build/CNAME');
     var copys = ['src/assets/', 'src/scripts/'].map((val) => {
         return fs.copy(val, path.join('build/', path.relative('src', val)));
     });
