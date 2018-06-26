@@ -44,4 +44,4 @@ workflows:
           branches:
             only: develop
           tags:
-            only: /^v-d+.d+.d+/
+            only: /^v-\d+.\d+.\d+/
