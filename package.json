@@ -13,6 +13,10 @@
   "devDependencies": {
     "browser-sync": "^2.24.5",
     "cpx": "^1.5.0",
+    "del": "^3.0.0",
+    "fs-extra": "^6.0.1",
+    "glob": "^7.1.2",
+    "isomorphic-git": "^0.19.8",
     "jstransformer-markdown-it": "^2.1.0",
     "maid": "^0.3.0",
     "node-sass": "^4.9.0",
