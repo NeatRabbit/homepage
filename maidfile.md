@@ -177,6 +177,7 @@ const del = require('del');
 const cpx = require('cpx');
 const glob = require('glob');
 const process = require('process');
+const shell = require('shelljs');
 
 module.exports = async () => {
     var originURL = await git.config({
@@ -186,14 +187,15 @@ module.exports = async () => {
     });
 
     await del('gh-pages-branch/');
-    await git.clone({
-        fs: fs,
-        dir: './gh-pages-branch',
-        url: originURL,
-        ref: 'gh-pages',
-        singleBranch: true,
-        depth: 1
-    });
+    shell.exec(`git clone --depth 1 --single-branch -b gh-pages ${originURL} gh-pages-branch `);
+    // await git.clone({
+    //     fs: fs,
+    //     dir: './gh-pages-branch',
+    //     url: originURL,
+    //     ref: 'gh-pages',
+    //     singleBranch: true,
+    //     depth: 1
+    // });
 
     await del('gh-pages-branch/**/*');
 
@@ -250,11 +252,13 @@ module.exports = async () => {
         message: 'deploy gh-pages'
     });
 
-    await git.push({
-        fs: fs,
-        dir: './gh-pages-branch',
-        remote: 'origin',
-        ref: 'gh-pages'
-    });
+    // await git.push({
+    //     fs: fs,
+    //     dir: './gh-pages-branch',
+    //     remote: 'origin',
+    //     ref: 'gh-pages'
+    // });
+    shell.cd('gh-pages-branch');
+    shell.exec('git push origin gh-pages');
 }
 ```
