@@ -40,8 +40,8 @@ workflows:
   deploy:
     jobs:
       - build:
-        filters:
-          branches:
-            only: develop
-          tags:
-            only: /^v-\d+.\d+.\d+/
+          filters:
+            branches:
+              only: develop
+            tags:
+              only: /^v-\d+.\d+.\d+/
