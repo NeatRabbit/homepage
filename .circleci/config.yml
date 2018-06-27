@@ -38,8 +38,3 @@ jobs:
         
       # run build!
       - run: yarn run deploy
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - build
