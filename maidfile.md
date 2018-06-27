@@ -181,6 +181,8 @@ const shell = require('shelljs');
 module.exports = async () => {
     var originURL = shell.exec('git config remote.origin.url', {silent: true}).stdout.trim();
     await del('gh-pages-branch/');
+    shell.exec('git config --global user.email "$GIT_EMAIL"');
+    shell.exec('git config --global user.name "$GIT_NAME"');
     console.log('Clone gh-pages');
     shell.exec(`git clone --depth 1 --single-branch -b gh-pages ${originURL} gh-pages-branch`, {silent: true});
     await del('gh-pages-branch/**/*');
@@ -188,7 +190,7 @@ module.exports = async () => {
     await fs.copy('build/', 'gh-pages-branch/');
     shell.cd('gh-pages-branch');
     shell.exec('git add . -A', {silent: true});
-    shell.exec('git commit -m "deploy gh-pages" --author="$GIT_NAME <$GIT_EMAIL>"', {silent: true});
+    shell.exec('git commit -m "deploy gh-pages"', {silent: true});
     console.log('Push gh-pages');
     shell.exec('git push origin gh-pages', {silent: true});
 }
