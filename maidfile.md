@@ -89,6 +89,7 @@ const sass = require('node-sass');
 
 module.exports = async () => {
     await fs.copy('src/CNAME', 'build/CNAME');
+    await fs.copy('.circleci/config.yml', 'build/.circleci/config.yml');
     var copys = ['src/assets/', 'src/scripts/'].map((val) => {
         return fs.copy(val, path.join('build/', path.relative('src', val)));
     });
@@ -189,14 +190,6 @@ module.exports = async () => {
 
     await del('gh-pages-branch/');
     shell.exec(`git clone --depth 1 --single-branch -b gh-pages ${originURL} gh-pages-branch `);
-    // await git.clone({
-    //     fs: fs,
-    //     dir: './gh-pages-branch',
-    //     url: originURL,
-    //     ref: 'gh-pages',
-    //     singleBranch: true,
-    //     depth: 1
-    // });
 
     await del('gh-pages-branch/**/*');
 
@@ -253,12 +246,6 @@ module.exports = async () => {
         message: 'deploy gh-pages'
     });
 
-    // await git.push({
-    //     fs: fs,
-    //     dir: './gh-pages-branch',
-    //     remote: 'origin',
-    //     ref: 'gh-pages'
-    // });
     shell.cd('gh-pages-branch');
     shell.exec('git push origin gh-pages');
 }

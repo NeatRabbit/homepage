@@ -5,6 +5,9 @@
 version: 2
 jobs:
   build:
+    branches:
+      only:
+        - master
     docker:
       # specify the version you desire here
       - image: circleci/node:7.10
@@ -42,6 +45,4 @@ workflows:
       - build:
           filters:
             branches:
-              only: develop
-            tags:
-              only: /^v-\d+.\d+.\d+/
+              only: master
