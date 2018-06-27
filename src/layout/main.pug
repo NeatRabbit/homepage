@@ -8,6 +8,9 @@ case lang
     when 'en'
         - var title = 'A Rabbit Burrow'
         - var menu = ['Entrance', 'Posts']
+    when 'jp'
+        - var title = 'ウサギの巣穴'
+        - var menu = ['Entrance', 'Posts']
 html(lang=lang)
     head
         meta(charset="UTF-8")
@@ -33,6 +36,9 @@ html(lang=lang)
                     unless lang == 'en'
                         li.menu_item
                             a.menu_link.lang_link(href="/en/", data-lang="en") EN
+                    unless lang == 'jp'
+                        li.menu_item
+                            a.menu_link.lang_link(href="/jp/", data-lang="jp") JP
         section.content
             block content
         footer.footer

@@ -1,0 +1,48 @@
+extends ../../layout/main.pug
+block vars
+    - lang = 'jp'
+block content
+    div.resume
+        h2.name GwangYeom Kim
+        p Front-end, Markup (html5, css), Workflow automation (nodeJs) 開発の経験があります。
+        section.resume_left
+            h2 経験
+            h3 N Tech Services
+            h4 ウェブUI開発者 (2015.10. ~ )
+            ul
+                li Gulpを利用した業務の自動化プログラム開発
+                li インターンに業務の自動化に関して教育
+                li HTML/CSS(SASS)/JSを利用したウェブUI開発
+                li 参加プロジェクト (Naver Services)
+                    ul
+                        li SmartEditor 3.0
+                        li PhotoEditor based HTML5
+                        li Grafolio (#[a(href="https://www.grafolio.com") https://www.grafolio.com])
+                        li Knowledge iN (#[a(href="https://kin.naver.com") https://kin.naver.com])
+            h3 Tekville.com
+            h4 ウェブサーバープログラマ (2012.11 ~ 2015.09)
+            ul
+                li Linux, PHP, MySQL, html, css, jsを利用したウェブサイト開発
+                li 参加プロジェクト
+                    ul
+                        li PHPベースのオープンソースを利用したLMS(Learning Management System)開発
+                        li 会社のホームページリニューアル
+            h2 技術
+            ul.skill_list
+                each val in ['HTML5', 'CSS', 'SASS', 'Javascript', 'NodeJS', 'Typescript', 'VueJS', 'PHP', 'Git', 'MySQL', 'Linux']
+                    li.skill_item= val
+        section.resume_right
+            h2 学力
+            h3 単位銀行制度
+            p ソウル Hoseo　専門学校 (2009.03 ~ 2011.03)
+            p 電子計算学士号修了
+            h2 Contact
+            h3 E-mail
+            p 
+                a(href="mailto:usagi@nagi.space") usagi@nagi.space
+            h3 Github
+            p
+                a(href="https://github.com/NeatRabbit") https://github.com/NeatRabbit
+            h3 LinkedIn
+            p
+                a(href="https://www.linkedin.com/in/gwang-yeom-kim/") https://www.linkedin.com/in/gwang-yeom-kim/
