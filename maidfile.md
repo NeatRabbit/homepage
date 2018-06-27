@@ -174,79 +174,22 @@ Run task `build` before this
 
 ```js
 const fs = require('fs-extra');
-const git = require('isomorphic-git');
 const del = require('del');
-const cpx = require('cpx');
-const glob = require('glob');
 const process = require('process');
 const shell = require('shelljs');
 
 module.exports = async () => {
-    var originURL = await git.config({
-        fs: fs,
-        dir: '.',
-        path: 'remote.origin.url'
-    });
-
+    var originURL = shell.exec('git config remote.origin.url', {silent: true}).stdout.trim();
     await del('gh-pages-branch/');
-    shell.exec(`git clone --depth 1 --single-branch -b gh-pages ${originURL} gh-pages-branch `);
-
+    console.log('Clone gh-pages');
+    shell.exec(`git clone --depth 1 --single-branch -b gh-pages ${originURL} gh-pages-branch`, {silent: true});
     await del('gh-pages-branch/**/*');
-
-    var removeFiles = await git.listFiles({
-        fs: fs,
-        dir: './gh-pages-branch'
-    });
-    removeFiles = removeFiles.map((val) => {
-        return git.remove({
-            fs: fs,
-            dir: './gh-pages-branch',
-            filepath: val
-        });
-    });
-
-    await Promise.all(removeFiles);
-
-    await new Promise((resolve, reject) => {
-        cpx.copy('build/**/*', 'gh-pages-branch/', (err, result) => {
-            if (err) {
-                reject(err);
-                throw err;
-            }
-            resolve();
-        });
-    });
-    var files = await new Promise((resolve, reject) => {
-        glob('**/*', {nodir: true, cwd: './gh-pages-branch'}, (err, arr) => {
-            if (err) {
-                reject(err);
-                throw err;
-            }
-            resolve(arr);
-        });
-    });
-
-    files = files.map((val) => {
-        return git.add({
-            fs: fs,
-            dir: './gh-pages-branch',
-            filepath: val
-        });
-    });
-
-    await Promise.all(files);
-
-    await git.commit({
-        fs: fs,
-        dir: './gh-pages-branch',
-        author: {
-            name: process.env.GIT_NAME,
-            email: process.env.GIT_EMAIL
-        },
-        message: 'deploy gh-pages'
-    });
-
+    await del('gh-pages-branch/.circleci/');
+    await fs.copy('build/', 'gh-pages-branch/');
     shell.cd('gh-pages-branch');
-    shell.exec('git push origin gh-pages');
+    shell.exec('git add . -A', {silent: true});
+    shell.exec('git commit -m "deploy gh-pages" --author="$GIT_NAME <$GIT_EMAIL>"', {silent: true});
+    console.log('Push gh-pages');
+    shell.exec('git push origin gh-pages', {silent: true});
 }
 ```
